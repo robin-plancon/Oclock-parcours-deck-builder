@@ -20,6 +20,21 @@ const searchController = {
       res.status(500).send(`An error occured with the database :\n${error.message}`);
     }
   },
+
+  // méthode qui récupère les cartes d'un niveau donné
+  searchByLevel: async (req, res) => {
+    const { level } = req.query;
+    try {
+      const cards = await dataMapper.getCardByLevel(level);
+      res.render('cardList', {
+        cards,
+        title: `Cartes de niveau ${level}`,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send(`An error occured with the database :\n${error.message}`);
+    }
+  },
 };
 
 module.exports = searchController;

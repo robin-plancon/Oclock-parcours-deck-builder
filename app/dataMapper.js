@@ -26,6 +26,13 @@ const dataMapper = {
     const result = await database.query(query, [element]);
     return result.rows;
   },
+
+  // méthode qui récupère toutes les cartes d'un niveau donné
+  async getCardByLevel(level) {
+    const query = 'SELECT * FROM card WHERE level = $1';
+    const result = await database.query(query, [level]);
+    return result.rows;
+  },
 };
 
 module.exports = dataMapper;

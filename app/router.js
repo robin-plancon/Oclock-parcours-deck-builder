@@ -10,6 +10,7 @@ router.get('/', mainController.homePage);
 router.get('/card/:id', mainController.cardPage);
 router.get('/search', searchController.searchPage);
 router.get('/search/element', searchController.searchByElement);
+router.get('/search/level', searchController.searchByLevel);
 router.get('/deck', deckController.deckPage);
 router.get('/deck/add/:id', deckController.addCardToDeck);
 router.get('/deck/remove/:id', deckController.removeCardFromDeck);
