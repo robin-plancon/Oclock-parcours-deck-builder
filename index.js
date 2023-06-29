@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const session = require('express-session');
 
 dotenv.config();
 
@@ -9,6 +10,15 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {},
+  })
+);
 
 app.use(express.static('public'));
 
