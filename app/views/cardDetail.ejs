@@ -1,0 +1,14 @@
+<%- include('header') %>
+<div class="cardsContainer">
+  <div class="card">
+    <a>
+      <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration" />
+      <p class="cardName"><%= card.name %></p>
+    </a>
+    <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
+  </div>
+  <p>Niveau: <%= card.level %></p>
+  <p>Element: <%= card.element %></p>
+</div>
+
+<%- include('footer') %>
