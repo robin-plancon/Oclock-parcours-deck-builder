@@ -53,6 +53,22 @@
   text-align: center;
 }
 
+.cardDetailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 20px;
+  height: 90vh;
+  gap: 20px;
+  align-items: center
+}
+
+.cardDetailContainer .card {
+  width: 200px;
+  position: relative;
+  text-align: center;
+}
+
 .card img {
   min-width: 120px;
 }
