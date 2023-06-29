@@ -33,6 +33,20 @@ const dataMapper = {
     const result = await database.query(query, [level]);
     return result.rows;
   },
+
+  // méthode qui récupère toutes les cartes d'une valeur donnée dans une direction donnée
+  async getCardByValue(value, direction) {
+    const query = `SELECT * FROM card WHERE value_${direction} >= $1`;
+    const result = await database.query(query, [value]);
+    return result.rows;
+  },
+
+  // méthode qui récupère toutes les cartes dont le nom contient une chaîne de caractères donnée
+  async getCardByName(name) {
+    const query = 'SELECT * FROM card WHERE name ILIKE $1';
+    const result = await database.query(query, [`%${name}%`]);
+    return result.rows;
+  },
 };
 
 module.exports = dataMapper;
