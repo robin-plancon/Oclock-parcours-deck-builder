@@ -10,7 +10,7 @@ const deckController = {
   },
 
   addCardToDeck: async (req, res) => {
-    const { id } = req.params;
+    const id = parseInt(req.params.id, 10);
     if (!req.session.deck) {
       req.session.deck = [];
     }
@@ -36,7 +36,6 @@ const deckController = {
   removeCardFromDeck: (req, res) => {
     const id = parseInt(req.params.id, 10);
     req.session.deck = req.session.deck.filter((card) => card.id !== id);
-    console.log(req.session.deck);
     res.redirect('/deck');
   },
 };
