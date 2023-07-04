@@ -17,20 +17,20 @@ const deckController = {
     const { deck } = req.session;
 
     if (deck.length >= 5) {
-      res.redirect('/deck');
+      return res.redirect('/deck');
     }
 
     if (deck.find((card) => card.id === id)) {
-      res.redirect('/deck');
+      return res.redirect('/deck');
     }
 
     try {
       const card = await dataMapper.getCardById(id);
       deck.push(card);
     } catch (error) {
-      res.status(500).send(`An error occured with the database :\n${error.message}`);
+      return res.status(500).send(`An error occured with the database :\n${error.message}`);
     }
-    res.redirect('/deck');
+    return res.redirect('/deck');
   },
 
   removeCardFromDeck: (req, res) => {
